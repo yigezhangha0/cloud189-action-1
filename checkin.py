@@ -140,7 +140,6 @@ def login(username, password):
     print("账号: "+username+"  密码: "+password)
     url = "https://cloud.189.cn/udb/udb_login.jsp?pageId=1&redirectURL=/main.action"
     r = s.get(url)
-    print ("re: "+re.findall(r"captchaToken' value='(.+?)'", r.text))
     captchaToken = re.findall(r"captchaToken' value='(.+?)'", r.text)[0]
     lt = re.findall(r'lt = "(.+?)"', r.text)[0]
     returnUrl = re.findall(r"returnUrl = '(.+?)'", r.text)[0]
