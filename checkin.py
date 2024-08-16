@@ -18,6 +18,7 @@ if(username == "" or password == ""):
 
 
 def main():
+    print(username)
     login(username, password)
     rand = str(round(time.time()*1000))
     surl = f'https://api.cloud.189.cn/mkt/userSign.action?rand={rand}&clientType=TELEANDROID&version=8.6.3&model=SM-G930K'
