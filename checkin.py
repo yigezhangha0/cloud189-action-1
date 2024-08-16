@@ -9,7 +9,7 @@ from urllib import parse
 
 s = requests.Session()
 
-username = "18670707010"
+username = ""
 password = ""
 
 if(username == "" or password == ""):
@@ -18,7 +18,7 @@ if(username == "" or password == ""):
 
 
 def main():
-    print("username: "+username)
+    print("账号: "+username+"  密码: "+password)
     login(username, password)
     rand = str(round(time.time()*1000))
     surl = f'https://api.cloud.189.cn/mkt/userSign.action?rand={rand}&clientType=TELEANDROID&version=8.6.3&model=SM-G930K'
@@ -140,6 +140,7 @@ def calculate_md5_sign(params):
 def login(username, password):
     url = "https://cloud.189.cn/udb/udb_login.jsp?pageId=1&redirectURL=/main.action"
     r = s.get(url)
+    print ("响应: "+r)
     captchaToken = re.findall(r"captchaToken' value='(.+?)'", r.text)[0]
     lt = re.findall(r'lt = "(.+?)"', r.text)[0]
     returnUrl = re.findall(r"returnUrl = '(.+?)'", r.text)[0]
